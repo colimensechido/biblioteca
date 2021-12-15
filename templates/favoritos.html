@@ -28,6 +28,7 @@
                     </thead>
                     <tbody>
                         {% for libro in libros %}
+                        {% if libro.id_usuario == iduser %}
                       <tr>
                         <td>{{libro.titulo_libro}}</td>
                         <td>{{libro.numero_paginas}}</td>
@@ -40,6 +41,7 @@
                         
                         <td><a href="/deletefav/{{libro.id_libro}}" class="button is-danger is-small modal-button" data-target="modal" aria-haspopup="true">Quitar favorito</a></td>
                       </tr>
+                      {% endif %}
                       {% endfor %}
                       
         

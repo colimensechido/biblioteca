@@ -10,7 +10,7 @@ app = Flask(__name__)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:1234@localhost:5432/catalogo'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://retlrhccwakrfh:92e7c3e711ae89d3530aa7f5c733cfb9278abe556dd164d7531c4764836b349f@ec2-44-194-116-221.compute-1.amazonaws.com:5432/db6im8i87mv8p9'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'xd'
 

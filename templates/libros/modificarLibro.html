@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+{% block content%}
+<div class="container">
+
+
+<div class="columns is-centered">
+    <div class="column is-half">
+
+
+<form class="card" method="POST" action="/edit_book">
+    <input type="hidden" name="idlibro" value="{{libros.id_libro}}">
+    <div class="field">
+      <label class="label">Nombre del libro</label>
+      <div class="control">
+        <input name="nombreLibro" class="input" type="text" value="{{libros.titulo_libro}}">
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Cantidad de paginas</label>
+      <div class="control">
+        <input name="paginas" class="input" type="number" value="{{libros.numero_paginas}}">
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Volumen</label>
+      <div class="control">
+        <input name="volumen" class="input" type="number" value="{{libros.volumen}}">
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+          <label for="">Editorial</label>
+          <select class="input" name="editorial">
+              <option value="">Seleccione la editorial del libro</option>
+          {% for editorial in editoriales %}
+          {% if libros.id_editorial == editorial.id_editorial%}
+          <option selected value="{{editorial.id_editorial}}">{{editorial.nombre_editorial}}
+          </option>
+          {% else %}
+          <option value="{{editorial.id_editorial}}" name="">{{editorial.nombre_editorial}}</option>
+          {% endif %}
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Fecha de publicación</label>
+      <div class="control">
+        <input name="fecha" class="input" type="date" value="{{libros.fecha_publicacion}}">
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Formato del libro</label>
+      <div class="control">
+        <input name="formato" class="input" type="text" value="{{libros.formato}}">
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+          <label for="">Genero</label>
+          <select class="input" name="genero">
+              <option value="">Selecciona un genero para el libro</option>
+          {% for genero in generos %}
+          {% if libros.id_genero == genero.id_genero%}
+          <option selected value="{{genero.id_genero}}">{{genero.nombre_genero}}
+          </option>
+          {%else%}
+          <option value="{{genero.id_genero}}">{{genero.nombre_genero}}</option>
+          {% endif %}
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+          <label for="">Autor</label>
+          <select class="input" name="autor">
+              <option value="">Selecciona el autor del libro</option>
+
+          {% for autor in autores %}
+          {% if libros.id_autor == autor.id_autor%}
+          <option selected value="{{autor.id_autor}}">{{autor.nombre_autor}}
+          </option>
+          {%else%}
+          <option value="{{autor.id_autor}}">{{autor.nombre_autor}}</option>
+          {% endif %}
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+
+    <div class="field">
+        <p class="control is-expanded">
+            <input class="button is-primary" type="submit" value="Guardar cambios">
+        </p>
+    </div>
+  </form>
+    </div>
+</div>
+</div>
+{% endblock %}

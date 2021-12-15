@@ -1,0 +1,29 @@
+{% extends "layout.html"%}
+{% block content%}
+<div class="container">
+
+
+    <div class="columns is-centered">
+        <div class="column is-half">
+    
+    
+    <form class="card" method="POST" action="/add_editorial">
+        <div class="field">
+          <label class="label">Nombre del editorial</label>
+          <div class="control">
+            <input name="nombreEditorial" class="input" type="text" placeholder="Ingrese el nombre del editorial">
+          </div>
+        </div>
+        
+    
+    
+        <div class="field">
+            <p class="control is-expanded">
+                <input class="button is-primary" type="submit" value="Agregar editorial">
+            </p>
+        </div>
+      </form>
+        </div>
+    </div>
+    </div>
+{% endblock %}

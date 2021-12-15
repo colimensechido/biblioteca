@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+{% block content%}
+<div class="container">
+
+
+<div class="columns is-centered">
+    <div class="column is-half">
+
+
+<form class="card" method="POST" action="/add_book">
+    <div class="field">
+      <label class="label">Nombre del libro</label>
+      <div class="control">
+        <input name="nombreLibro" class="input" type="text" placeholder="Ingrese el nombre del libro">
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Cantidad de paginas</label>
+      <div class="control">
+        <input name="paginas" class="input" type="number" placeholder="Ingrese la cantidad de páginas">
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Volumen</label>
+      <div class="control">
+        <input name="volumen" class="input" type="number" placeholder="Ingrese el volumen del libro">
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+          <label for="">Editorial</label>
+          <select class="input" name="editorial">
+              <option value="">Seleccione la editorial del libro</option>
+          {% for editorial in editoriales %}
+          <option value="{{editorial.id_editorial}}" name="">{{editorial.nombre_editorial}}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Fecha de publicación</label>
+      <div class="control">
+        <input name="fecha" class="input" type="date" placeholder="Ingrese la fecha de pbulicación">
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Formato del libro</label>
+      <div class="control">
+        <input name="formato" class="input" type="text" placeholder="Ingrese el formato del libro">
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+          <label for="">Genero</label>
+          <select class="input" name="genero">
+              <option value="">Selecciona un genero para el libro</option>
+          {% for genero in generos %}
+          <option value="{{genero.id_genero}}">{{genero.nombre_genero}}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+          <label for="">Autor</label>
+          <select class="input" name="autor">
+              <option value="">Selecciona el autor del libro</option>
+          {% for autor in autores %}
+          <option value="{{autor.id_autor}}">{{autor.nombre_autor}}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+
+    <div class="field">
+        <p class="control is-expanded">
+            <input class="button is-primary" type="submit" value="Agregar libro">
+        </p>
+    </div>
+  </form>
+    </div>
+</div>
+</div>
+{% endblock %}

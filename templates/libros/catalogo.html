@@ -1,0 +1,59 @@
+{% extends "layout.html"%}
+{% block content%}
+<div class="container is-flex">
+<div class="columns is-centered is-vcentered is-mobile">
+    <div class="column is-full">
+      <a href="/addbook" class="button is-primary">Nuevo libro</a>
+        <div class="card has-text-centered is-wide">
+            <header class="card-header">
+              <p class="card-header-title">
+                Lista de libros
+              </p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                
+                <table class="table is-striped is-narrow is-hoverable is-fullwidth">
+                    <thead>
+                      <tr>
+                        <th>Titulo</th>
+                        <th>No. páginas</th>
+                        <th>Volumen</th>
+                        <th>Editorial</th>
+                        <th>Fecha de publicación</th>
+                        <th>Formato del libro</th>
+                        <th>Genero</th>
+                        <th>Autor</th>
+                        <th>Opciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for libro in libro %}
+                      <tr>
+                        <td>{{libro.titulo_libro}}</td>
+                        <td>{{libro.numero_paginas}}</td>
+                        <td>{{libro.volumen}}</td>
+                        <td>{{libro.nombre_editorial}}</td>
+                        <td>{{libro.fecha_publicacion}}</td>
+                        <td>{{libro.formato}}</td>
+                        <td>{{libro.nombre_genero}}</td>
+                        <td>{{libro.nombre_autor}}</td>
+                        
+                        <td><a href="/editbook/{{libro.id_libro}}" class="button is-warning is-small modal-button" data-target="modal" aria-haspopup="true">Modificar</a> <a href="/deletebook/{{libro.id_libro}}" class="button is-danger is-small modal-button" data-target="modal" aria-haspopup="true">Eliminar</a>
+                          <a href="/addfav/{{libro.id_libro}}" class="button is-success is-small modal-button" data-target="modal" aria-haspopup="true">Favorito</a>
+                        </td>
+                      </tr>
+                      {% endfor %}
+                      
+        
+                    </tbody>
+                  </table>
+              </div>
+            </div>
+        
+          </div>
+    </div>
+</div>
+  </div>
+
+{% endblock %}

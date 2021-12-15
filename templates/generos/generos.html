@@ -1,0 +1,41 @@
+{% extends "layout.html"%}
+{% block content%}
+<div class="container is-flex">
+<div class="columns is-centered is-vcentered is-mobile">
+    <div class="column is-full">
+        <a href="/addgenero" class="button is-primary">Nuevo genero</a>
+        <div class="card has-text-centered is-wide">
+            <header class="card-header">
+              <p class="card-header-title">
+                Lista de generos
+              </p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                <table class="table is-striped is-narrow is-hoverable is-fullwidth">
+                    <thead>
+                      <tr>
+                        <th>Nombre del genero</th>
+                        <th>Opciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for genero in generos %}
+                      <tr>
+                        <td>{{genero.nombre_genero}}</td>
+                        <td><a href="/editgenero/{{genero.id_genero}}" class="button is-warning is-small modal-button" data-target="modal" aria-haspopup="true">Modificar</a> <a href="/deletegenero/{{genero.id_genero}}" class="button is-danger is-small modal-button" data-target="modal" aria-haspopup="true">Eliminar</a></td>
+                      </tr>
+                      {% endfor %}
+                      
+        
+                    </tbody>
+                  </table>
+              </div>
+            </div>
+        
+          </div>
+    </div>
+</div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "layout.html"%}
+{% block content%}
+<div class="container">
+
+
+    <div class="columns is-centered">
+        <div class="column is-half">
+    
+    
+    <form class="card" method="POST" action="/add_genero">
+        <div class="field">
+          <label class="label">Nombre del genero</label>
+          <div class="control">
+            <input name="nombreGenero" class="input" type="text" placeholder="Ingrese el nombre del genero">
+          </div>
+        </div>
+        
+    
+    
+        <div class="field">
+            <p class="control is-expanded">
+                <input class="button is-primary" type="submit" value="Agregar genero">
+            </p>
+        </div>
+      </form>
+        </div>
+    </div>
+    </div>
+{% endblock %}

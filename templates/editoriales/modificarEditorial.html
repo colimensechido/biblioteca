@@ -1,0 +1,30 @@
+{% extends "layout.html"%}
+{% block content%}
+<div class="container">
+
+
+    <div class="columns is-centered">
+        <div class="column is-half">
+    
+    
+    <form class="card" method="POST" action="/edit_editorial">
+        <input type="hidden" name="ideditorial" value="{{editoriales.id_editorial}}">
+        <div class="field">
+          <label class="label">Nombre del genero</label>
+          <div class="control">
+            <input name="nombreE" class="input" type="text" value="{{editoriales.nombre_editorial}}">
+          </div>
+        </div>
+        
+    
+    
+        <div class="field">
+            <p class="control is-expanded">
+                <input class="button is-primary" type="submit" value="Guardar cambios">
+            </p>
+        </div>
+      </form>
+        </div>
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html"%}
+{% block content%}
+<div class="container">
+
+
+    <div class="columns is-centered">
+        <div class="column is-half">
+    
+    
+    <form class="card" method="POST" action="/edit_genero">
+        <input type="hidden" name="idgenero" value="{{generos.id_genero}}">
+        <div class="field">
+          <label class="label">Nombre del genero</label>
+          <div class="control">
+            <input name="nombreG" class="input" type="text" value="{{generos.nombre_genero}}">
+          </div>
+        </div>
+        
+    
+    
+        <div class="field">
+            <p class="control is-expanded">
+                <input class="button is-primary" type="submit" value="Guardar cambios">
+            </p>
+        </div>
+      </form>
+        </div>
+    </div>
+    </div>
+{% endblock %}

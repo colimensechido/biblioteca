@@ -1,1 +1,1 @@
-web: gunircon app: app
+web: gunircon app:app
